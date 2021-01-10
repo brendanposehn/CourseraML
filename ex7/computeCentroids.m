@@ -26,11 +26,12 @@ centroids = zeros(K, n);
 % Note: You can use a for-loop over the centroids to compute this.
 %
 
-
-
-
-
-
+for k=1:K
+    this_cluster = k == idx;
+    n_in_cluster = sum(this_cluster);
+    new_centroid = sum(this_cluster.*X, 1)/n_in_cluster;
+    centroids(k, :) = new_centroid;
+end
 
 
 % =============================================================
